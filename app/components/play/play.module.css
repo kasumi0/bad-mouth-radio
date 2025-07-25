@@ -1,7 +1,6 @@
 .radioArea {
   position: fixed;
   inset: 0;
-  z-index: 2;
   background: linear-gradient(rgba(55, 55, 55, 0.3)),
     url(/radio.webp) center/cover;
   display: grid;
@@ -10,6 +9,11 @@
   @media (orientation: portrait) {
     background: linear-gradient(rgba(55, 55, 55, 0.3)),
     url(/radio-sp.webp) center/cover;
+  }
+  > audio:first-child {
+    position: fixed;
+    inset: auto 0 15vh;
+    margin-inline: auto;
   }
 }
 

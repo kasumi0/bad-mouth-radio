@@ -75,7 +75,7 @@ export const Play = ({ audioBase64, onReset }: Props) => {
 
   return (
     <div className={radioArea}>
-      <audio ref={voiceRef} src={`data:audio/mp3;base64,${audioBase64}`} />
+      <audio ref={voiceRef} src={`data:audio/mp3;base64,${audioBase64}`} controls />
       <audio ref={bgmRef} src={bgmSrc} loop />
       <Modal isEnd={isEnd} onRetry={restartPlayback} onReset={onReset} />
     </div>
