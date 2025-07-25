@@ -62,9 +62,11 @@
     border-radius: 2em;
     transition-property: background-color, translate;
     transition-duration: 0.4s;
-    &:hover {
-      background-color: rgba(255 255 255/0.2);
-      translate: 0 -6px;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: rgba(255 255 255/0.2);
+        translate: 0 -6px;
+      }
     }
   }
   &.voiceEnd {

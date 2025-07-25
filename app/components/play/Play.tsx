@@ -6,7 +6,7 @@ const { radioArea, playButton, disabled } = styles;
 const BGMs = ["/bgm1.mp3", "/bgm2.mp3", "/bgm3.mp3"];
 
 const MAX_VOLUME = 1;
-const INCREMENTS = 0.08;
+const INCREMENTS = 0.05;
 const INTERVAL = 200;
 
 const fadeInAudio = (audio: HTMLAudioElement) => {
