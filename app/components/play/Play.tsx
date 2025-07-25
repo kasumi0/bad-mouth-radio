@@ -5,7 +5,7 @@ const { radioArea, playButton, disabled } = styles;
 
 const BGMs = ["/bgm1.mp3", "/bgm2.mp3", "/bgm3.mp3"];
 
-const MAX_VOLUME = 0.15;
+const MAX_VOLUME = 0.1;
 const INCREMENTS = 0.005;
 const INTERVAL = 200;
 
