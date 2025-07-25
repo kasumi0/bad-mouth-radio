@@ -5,8 +5,8 @@ const { radioArea, playButton, disabled } = styles;
 
 const BGMs = ["/bgm1.mp3", "/bgm2.mp3", "/bgm3.mp3"];
 
-const MAX_VOLUME = 0.1;
-const INCREMENTS = 0.005;
+const MAX_VOLUME = 1;
+const INCREMENTS = 0.08;
 const INTERVAL = 200;
 
 const fadeInAudio = (audio: HTMLAudioElement) => {
@@ -23,7 +23,7 @@ const fadeInAudio = (audio: HTMLAudioElement) => {
 
 const fadeOutAudio = (audio: HTMLAudioElement) => {
   const fadeOut = setInterval(() => {
-    if (audio.volume > 0.01) {
+    if (audio.volume > 0) {
       audio.volume = Math.max(audio.volume - INCREMENTS, 0);
     } else {
       clearInterval(fadeOut);
@@ -88,7 +88,7 @@ export const Play = ({ audioBase64, onReset }: Props) => {
         </button>
       ) : (
         <Modal isEnd={isEnd} onRetry={startPlayback} onReset={onReset} />
-      )}{" "}
+      )}
     </div>
   );
 };
