@@ -1,7 +1,7 @@
 .formArea {
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(rgba(32, 32, 32, 0.4)), url(/bg2.webp) center/cover;
+  background: linear-gradient(rgba(32, 32, 32, 0.4)), url(/bg.webp) center/cover;
   color: #ccc;
 }
 
