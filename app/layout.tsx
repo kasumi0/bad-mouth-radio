@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <h1>Bad Mouth Radio</h1>
         {children}
       </body>
     </html>

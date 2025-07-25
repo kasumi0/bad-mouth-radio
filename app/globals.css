@@ -27,18 +27,24 @@ html {
 
 body {
   color: var(--font-c);
-  font-family: var(--font-cormorant), var(--font-shippori), serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 section {
   padding: max(8vw, 50px) 5vw;
 }
-
 main {
   flex: 1;
+}
+h1 {
+  position: fixed;
+  inset: max(2vw, 14px) auto auto 5vw;
+  background: linear-gradient(135deg, #00a393, #8b03a7);
+  color: #ddd;
+  padding: 0.6em 1em;
+  border-radius: 4px;
+  z-index: 5;
 }
 
 p,
@@ -216,7 +222,6 @@ details {
 summary {
   display: list-item;
 }
-
 
 table {
   border-collapse: collapse;
