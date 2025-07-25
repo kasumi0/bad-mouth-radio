@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./play.module.css";
 import { Modal } from "./Modal";
-const { radioArea } = styles;
+const { radioArea, playButton, disabled } = styles;
 
 const BGMs = ["/bgm1.mp3", "/bgm2.mp3", "/bgm3.mp3"];
 
@@ -40,6 +40,7 @@ type Props = {
 export const Play = ({ audioBase64, onReset }: Props) => {
   const voiceRef = useRef<HTMLAudioElement>(null);
   const bgmRef = useRef<HTMLAudioElement>(null);
+  const [started, setStarted] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
 
   const [bgmSrc] = useState(() => {
@@ -47,13 +48,15 @@ export const Play = ({ audioBase64, onReset }: Props) => {
     return BGMs[rand];
   });
 
-  const restartPlayback = () => {
+  const startPlayback = () => {
     const voice = voiceRef.current;
     const bgm = bgmRef.current;
     if (!voice || !bgm) return;
+    
+    setIsEnd(false);
+    setStarted(true);
     voice.currentTime = 0;
     bgm.currentTime = 0;
-    setIsEnd(false);
     fadeInAudio(bgm);
     voice.play();
   };
@@ -62,8 +65,7 @@ export const Play = ({ audioBase64, onReset }: Props) => {
     const voice = voiceRef.current;
     const bgm = bgmRef.current;
     if (!voice || !bgm) return;
-    fadeInAudio(bgm);
-    voice.play();
+
     const handleEnded = () => {
       fadeOutAudio(bgm);
       setIsEnd(true);
@@ -75,9 +77,18 @@ export const Play = ({ audioBase64, onReset }: Props) => {
 
   return (
     <div className={radioArea}>
-      <audio ref={voiceRef} src={`data:audio/mp3;base64,${audioBase64}`} controls />
+      <audio ref={voiceRef} src={`data:audio/mp3;base64,${audioBase64}`} />
       <audio ref={bgmRef} src={bgmSrc} loop />
-      <Modal isEnd={isEnd} onRetry={restartPlayback} onReset={onReset} />
+      {!started ? (
+        <button
+          onClick={startPlayback}
+          className={`${playButton} ${started ? disabled : ""}`}
+        >
+          再生する
+        </button>
+      ) : (
+        <Modal isEnd={isEnd} onRetry={startPlayback} onReset={onReset} />
+      )}{" "}
     </div>
   );
 };

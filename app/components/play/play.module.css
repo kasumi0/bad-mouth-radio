@@ -8,12 +8,36 @@
   background-color: #333;
   @media (orientation: portrait) {
     background: linear-gradient(rgba(55, 55, 55, 0.3)),
-    url(/radio-sp.webp) center/cover;
+      url(/radio-sp.webp) center/cover;
   }
-  > audio:first-child {
-    position: fixed;
-    inset: auto 0 15vh;
-    margin-inline: auto;
+}
+
+.playButton {
+  transition-property: opacity, filter;
+  transition-duration: 1s;
+  pointer-events: auto;
+  position: fixed;
+  inset: auto 0 15vh;
+  margin-inline: auto;
+  padding-block: 0.8em;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(255 255 255/0.3);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 10em;
+  border-radius: 2em;
+  transition: background-color 0.4s, translate 0.4s,  opacity 1s, filter 1s;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: rgba(255 255 255/0.2);
+      translate: 0 -6px;
+    }
+  }
+  &.disabled {
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(30px);
   }
 }
 
