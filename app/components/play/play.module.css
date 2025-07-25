@@ -1,0 +1,48 @@
+.radioArea {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: linear-gradient(rgba(55, 55, 55, 0.3)),
+    url(/radio.webp) center/cover;
+  display: grid;
+  place-items: center;
+  background-color: #333;
+  @media (orientation: portrait) {
+    background: linear-gradient(rgba(55, 55, 55, 0.3)),
+    url(/radio-sp.webp) center/cover;
+  }
+}
+
+.modalArea {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(30px);
+  transition-property: opacity, filter;
+  transition-duration: 1s;
+  color: #fff;
+  padding: max(5vw, 50px) 5vw;
+  background-color: rgb(255 255 255/0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  border-radius: 10px;
+  gap: 2.4vw;
+  button {
+    padding-block: 0.8em;
+    border: 1px solid rgb(255 255 255/0.3);
+    text-align: center;
+    width: 10em;
+    border-radius: 2em;
+    transition-property: background-color, translate;
+    transition-duration: 0.4s;
+    &:hover {
+      background-color: rgba(255 255 255/0.2);
+      translate: 0 -6px;
+    }
+  }
+  &.voiceEnd {
+    filter: blur(0px);
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 3s;
+  }
+}

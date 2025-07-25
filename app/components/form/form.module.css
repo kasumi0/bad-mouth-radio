@@ -1,0 +1,120 @@
+.formArea {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(rgba(32, 32, 32, 0.4)), url(/bg2.webp) center/cover;
+  color: #ccc;
+}
+
+.inner {
+  transition: translate 1s;
+}
+
+.inputArea {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  padding: max(5vw, 50px) 5vw;
+  width: min(100%, 1000px);
+  margin-inline: auto;
+  gap: max(5vw, 50px);
+  textarea {
+    width: 100%;
+    border-radius: 10px;
+    height: 100px;
+    border-color: #555;
+  }
+  button[type="submit"] {
+    padding: 0.8em 1.8em;
+    background-color: rgb(100 237 255/0.2);
+    border-radius: 8px;
+    transition-property: background-color, translate, box-shadow;
+    transition-duration: 0.5s;
+    backdrop-filter: blur(5px);
+    color: #fff;
+    &:hover {
+      background-color: rgba(40, 115, 125, 0.7);
+      translate: 0 -6px;
+      box-shadow: 0 10px 20px rgb(255 255 255/0.2);
+    }
+  }
+}
+.question {
+  width: fit-content;
+  margin-inline: auto;
+  font-size: max(2vw, 1.2em);
+  margin-bottom: max(3vw, 30px);
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  label {
+    background-color: rgb(255 255 255/0.05);
+    backdrop-filter: blur(4px);
+    transition-property: color, background-color;
+    transition-duration: 0.3s;
+    position: relative;
+    padding: 0.4em 1.6em;
+    border: 1px solid rgb(255 255 255/0.2);
+    border-radius: 2em;
+    color: #999;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #fff;
+      }
+    }
+    &:has(input:checked) {
+      background-color: #ccc;
+      color: #333;
+    }
+  }
+  input {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.stepArea {
+  display: flex;
+  gap: max(3vw, 10px);
+  button {
+    padding: 0.6em 1.8em;
+    border: 1px solid rgb(255 255 255/0.2);
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    transition-property: background-color,translate;
+    transition-duration: 0.4s;
+    color: #fff;
+    &:hover {
+      background-color: rgb(0 0 0/0.2);
+      translate: 0 -6px;
+    }
+  }
+}
+
+.submitArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  .stepArea {
+    margin-bottom: max(3vw, 10px);
+  }
+  > p {
+    color: rgb(255, 69, 69);
+    font-weight: 600;
+  }
+}
+
+@media (width < 768px) {
+  .buttons {
+    label {
+      font-size: 13px;
+      padding: 0.3em 0.8em;
+    }
+  }
+}

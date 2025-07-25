@@ -1,0 +1,12 @@
+.loadingArea {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  place-content: center;
+  gap: max(6%, 1em);
+  z-index: 10;
+  color: #ccc;
+}
